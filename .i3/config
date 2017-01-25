@@ -28,6 +28,12 @@ bindsym XF86AudioMicMute exec pactl set-source-mute 1 toggle
 # backlight 
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10
 bindsym XF86MonBrightnessDown exec xbacklight -dec 5
+# play/pause
+#bindsym XF86AudioPlay exec mpc -q toggle
+# previous 
+#bindsym 173 exec mpc -q prev
+# next
+#bindsym XF86AudioNext exec mpc -q next
 
 # change focus
 bindsym $mod+j focus left
@@ -76,18 +82,22 @@ bindsym $mod+space focus mode_toggle
 # focus the parent container
 bindsym $mod+a focus parent
 
+# focus follows mouse 
+focus_follows_mouse no
+
 # focus the child container
 #bindsym $mod+d focus child
 
 set $workspace1 "Web"
 set $workspace2 "Term"
 set $workspace3 "Files"
+set $workspace4 "Chat"
 
 # switch to workspace
 bindsym $mod+1 workspace $workspace1
 bindsym $mod+2 workspace $workspace2
 bindsym $mod+3 workspace $workspace3
-bindsym $mod+4 workspace 4
+bindsym $mod+4 workspace $workspace4
 bindsym $mod+5 workspace 5
 bindsym $mod+6 workspace 6
 bindsym $mod+7 workspace 7
@@ -99,7 +109,7 @@ bindsym $mod+0 workspace 10
 bindsym $mod+Shift+1 move container to workspace $workspace1
 bindsym $mod+Shift+2 move container to workspace $workspace2
 bindsym $mod+Shift+3 move container to workspace $workspace3
-bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+4 move container to workspace $workspace4
 bindsym $mod+Shift+5 move container to workspace 5
 bindsym $mod+Shift+6 move container to workspace 6
 bindsym $mod+Shift+7 move container to workspace 7
@@ -110,7 +120,8 @@ bindsym $mod+Shift+0 move container to workspace 10
 # assign application to workspace
 assign [class="Firefox"] $workspace1
 assign [class="Gnome-terminal"] $workspace2
-assign [class="Files"] $workspace3
+assign [class="autilus"] $workspace3
+assign [class="discord"] $workspace4
 
 # reload the configuration file
 bindsym $mod+Shift+c reload
@@ -175,6 +186,7 @@ new_window normal
 #hide_edge_borders 
 for_window [class="^.*"] border pixel 1
 for_window [class="Firefox"] border pixel 0
+for_window [class="Nautilus"] border pixel 0
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
