@@ -1,1 +1,6 @@
-set number
+set number "enable line numbers
+syntax enable "enable syntax highlighting
+set showmatch "highlight matching [{()}] 
+set tabstop=4 "number of spaces per tab
+set softtabstop=4 "number of spaces per tab when editing
+set expandtab "tabs are spaces
